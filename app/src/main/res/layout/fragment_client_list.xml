@@ -8,6 +8,9 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
+        android:background="@color/black"
+        app:elevation="0dp"
+        android:paddingBottom="@dimen/margin15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="@color/black"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll"
             android:background="@color/black">
 
             <TextView
@@ -33,7 +36,33 @@
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_contatos"
+            android:theme="@style/SearchViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_background"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/margin15dp"
+            android:layout_marginEnd="@dimen/margin15dp"
+            android:layout_marginTop="@dimen/margin15dp"
+            app:iconifiedByDefault="false"
+            app:queryHint="A quem você deseja pagar?"
+            />
+
     </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.core.widget.NestedScrollView
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
@@ -44,30 +73,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView_contatos"
-                android:theme="@style/SearchViewStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/search_background"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="@dimen/margin15dp"
-                android:layout_marginEnd="@dimen/margin15dp"
-                android:layout_marginTop="@dimen/margin15dp"
-                app:iconifiedByDefault="false"
-                app:queryHint="A quem você deseja pagar?"
-                />
-
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewContactsList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_anchor="@id/searchView_contatos"
+                android:layout_height="match_parent"
                 app:layout_anchorGravity="bottom"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchView_contatos"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="@dimen/margin15dp"
                 android:layout_marginEnd="@dimen/margin15dp"
                 android:layout_marginTop="@dimen/margin15dp"
