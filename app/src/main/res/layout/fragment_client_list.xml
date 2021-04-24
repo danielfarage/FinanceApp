@@ -26,9 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/contatos"
-                android:textSize="32sp"
-                android:fontFamily="sans-serif-black"
-                android:textFontWeight="500"
+                style="@style/TitleTextView"
                 app:layout_collapseMode="parallax"
                 android:layout_marginStart="@dimen/margin15dp"
                 android:layout_marginTop="@dimen/margin40dp"/>

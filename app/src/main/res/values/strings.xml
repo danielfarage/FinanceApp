@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">FinanceApp</string>
     <string name="contatos">Contatos</string>
+    <string name="cadastrar_cartao">Cadastre um cartão \nde crédito</string>
+    <string name="desc_empty_cardlist">Para fazer pagamentos para outras \npessoas você precisa cadastrar um \ncartão de crédito</string>
+    <string name="btn_cadastrar_cartao">Cadastrar cartão</string>
+    <string name="cadastrar_cartao_title">Cadastrar cartão</string>
+    <string name="num_cartao">Número do cartão</string>
+    <string name="nome_do_titular">Nome do titular</string>
+    <string name="salvar">Salvar</string>
 </resources>
