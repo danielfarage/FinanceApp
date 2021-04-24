@@ -13,9 +13,10 @@ import com.daniel.farage.financeapp.R
 import com.daniel.farage.financeapp.data.model.Contact
 import com.daniel.farage.financeapp.data.model.ContactsListResponse
 
-class ContactsListAdapter(
-    private val contactsList: List<Contact>
-): RecyclerView.Adapter<ContactsListAdapter.ContactsListViewHolder>() {
+class ContactsListAdapter: RecyclerView.Adapter<ContactsListAdapter.ContactsListViewHolder>() {
+
+
+    private val contactsList: MutableList<Contact> = emptyList<Contact>().toMutableList()
 
     class ContactsListViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         private val imageViewPhotoContact: ImageView = view.findViewById(R.id.imageView_contactPhoto)
@@ -33,6 +34,12 @@ class ContactsListAdapter(
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(imageViewPhotoContact)
         }
+    }
+
+    fun setContactList(list: List<Contact>) {
+        contactsList.clear()
+        contactsList.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsListViewHolder {

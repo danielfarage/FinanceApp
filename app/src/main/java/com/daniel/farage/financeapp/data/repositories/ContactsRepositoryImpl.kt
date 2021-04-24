@@ -1,5 +1,6 @@
 package com.daniel.farage.financeapp.data.repositories
 
+import com.daniel.farage.financeapp.data.model.Contact
 import com.daniel.farage.financeapp.data.model.ContactsListResponse
 import com.daniel.farage.financeapp.data.remote.Api
 import com.daniel.farage.financeapp.domain.repositories.ContactsRepository
@@ -14,7 +15,7 @@ class ContactsRepositoryImpl(private val api: Api) : ContactsRepository {
 
     override fun loadContactsListRemote(): Flow<DataState<ContactsListResponse>> = flow {
         try {
-            val listContact = api.getAllContactsList()
+            val listContact = api.getAllContactsList().sortedBy { it.name }
             emit(DataState.Success(ContactsListResponse(listContact)))
         } catch (error: Exception) {
             emit(DataState.Failure<ContactsListResponse>(error))
